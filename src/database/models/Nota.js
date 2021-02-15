@@ -12,7 +12,7 @@ module.exports = function(sequelize, dataTypes) {
                     },
                     texto: {
                         allowNull: true,
-                        type: dataTypes.STRING
+                        type: dataTypes.STRING (60)
                     }
                 };
                 

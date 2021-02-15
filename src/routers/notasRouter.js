@@ -10,3 +10,8 @@ router.get("/edit/:id", notasController.edit);
 router.put("/edit/:id", notasController.editSave);
 
 module.exports = router; // disponibilizar
+
+
+// No lo logre hacer andar T_T halp cuando creo una nota nueva me sale:
+//Executing (default): SELECT `id`, `titulo`, `texto`, `created_at` AS `createdAt`, `updated_at` AS `updatedAt`, `deleted_at` AS `deletedAt` FROM `notas` AS `Nota` WHERE (`Nota`.`deleted_at` IS NULL);
+//Executing (default): SELECT `id`, `titulo`, `texto`, `created_at` AS `createdAt`, `updated_at` AS `updatedAt`, `deleted_at` AS `deletedAt` FROM `notas` AS `Nota` WHERE (`Nota`.`deleted_at` IS NULL);

@@ -2,18 +2,14 @@ const db = require('../database/models') // si es index, no es necesario ponerlo
 
 module.exports = {
     index: function(req, res) {
-        // encontrar todos los registros en la tabla -- pedido asincronico
-        db.Nota.findAll()
-        .then(function(notas){ //le asigno un nombre a la funcion (puede ser pepe)
-            return res.render('index', {
-                notas:  notas //propiedad(si la funcion se llama pepe, sera pepe): valor  
-            })
+        db.Nota.findAll().then((result)=>{
+            res.render('index', {notas: result});
         })
     },
 
     create: (req, res) => {
         let {title, message} = req.body;
-        if(!title || !message){
+        if (!title || !message){
             res.send("¡¡Error!!");
         }
 
@@ -41,7 +37,7 @@ module.exports = {
             }
           }).then((result)=>{
             console.log(result);
-            res.render("detail", {nota: result});
+            res.render('detail', {nota: result});
         });
     },
 
@@ -82,7 +78,7 @@ module.exports = {
             where: { id: id}
         })
         .then(()=>{
-            res.redirect("/");
+            res.redirect('/');
         })
         .catch(error=>{
             res.send("Algo no funciona: " + error.toString());
