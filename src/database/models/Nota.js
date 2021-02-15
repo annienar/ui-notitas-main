@@ -4,11 +4,11 @@ module.exports = function(sequelize, dataTypes) {
                     id: {
                         autoIncrement: true,
                         primaryKey: true,
-                        type: dataTypes.INTEGER
+                        type: dataTypes.INTEGER (11)
                     },
                     titulo: { 
                         allowNull: false,
-                        type: dataTypes.STRING
+                        type: dataTypes.STRING (45)
                     },
                     texto: {
                         allowNull: true,

@@ -22,16 +22,17 @@
     <main>
         <section class="editForm">
             <h1>Editar una nota</h1>
-            <form action="">
+            <form method="POST" action="/edit/<%= nota[0].id %>?_method=PUT">
                 <div>
                     <label for="">Título</label>
-                    <input type="text" name="title">
+                    <input type="text" name="title" value="<%= typeof nota != 'undefined' && nota.length > 0 ? nota[0].titulo : '' %>">
                 </div>
                 <div>
                     <label for="message">Mensaje</label>
-                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    <textarea name="message" id="message" cols="30" rows="10"><%= typeof nota != 'undefined' ? nota[0].texto : '' %></textarea>
                 </div>
                 <button type="submit">Editar</button>
+                <button type="button" onclick="javascript: window.location = '/';">Volver</button>
             </form>
         </section>
     </main>

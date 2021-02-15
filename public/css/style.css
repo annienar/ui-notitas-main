@@ -230,3 +230,7 @@ main .editForm form > button {
     padding: 10px 0;
     border-radius: 5px;
 }
+
+img.serena {
+    margin: 0px auto;
+}

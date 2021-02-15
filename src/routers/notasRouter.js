@@ -3,5 +3,10 @@ const router = express.Router(); // parte de express que me permite generar ruta
 const notasController = require('../controllers/notasController');
 
 router.get('/', notasController.index);
+router.put('/', notasController.create);
+router.delete("/:id", notasController.delete);
+
+router.get("/edit/:id", notasController.edit);
+router.put("/edit/:id", notasController.editSave);
 
 module.exports = router; // disponibilizar

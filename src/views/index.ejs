@@ -30,19 +30,26 @@
         </section>
 
         <!--lista de notas-->
-        <section class="list">
-            <div class="note">
-                <h2>Un título</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, placeat sapiente! Accusantium sit quod quos.</p>
-                <div class="edit">
-                    <a href="#"><i class="far fa-edit"></i></a>
-                    <form action="">
-                        <button type="submit"><i class="far fa-trash-alt"></i></button>
-                    </form>
-                </div>
-            </div>
+    </section>
+    <section class="list">
+        <% if(typeof notas != "undefined" && notas.length > 0) { %>
+            <%for (let i = 0; i < notas.length; i++) { %>
+                <div class="note">
+                    <h2><%= notas[i].titulo %></h2>
+                    <p><%= notas[i].texto %></p>
+                    <div class="edit">
+                        <a href="/edit/<%= notas[i].id%>"><i class="far fa-edit"></i></a>
                         
-        </section>
+                        <form method="POST" action="/<%= notas[i].id%>?_method=DELETE">
+                            <button type="submit"><i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </div>
+                </div>
+            <%}%>
+        <% } else { %>
+            <img class="serena" src="/public/images/sadSerena.gif"></span>
+        <%}%>
+    </section>
     </main>
 
 </body>
